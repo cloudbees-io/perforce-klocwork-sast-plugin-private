@@ -297,8 +297,6 @@ jobs:
 
 ----
 
-====
-
 === Using the action output
 
 Access the output values in downstream steps and jobs using the `outputs` link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/dsl-syntax/contexts[context].
