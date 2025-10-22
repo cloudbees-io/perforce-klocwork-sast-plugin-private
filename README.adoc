@@ -51,85 +51,85 @@ NOTE: For more information about the Perforce Klocwork SAST scanner, refer to th
 | Required?
 | Description
 
-| `enableAgentScan`
-| Boolean
-| No
-| Enable Klocwork Agent Scan defaulted to false.
-
 | `url`
 | String
 | Yes
 | The Klocwork server URL.
-
-| `licenseHost`
-| String
-| No
-| Klocwork license server hostname.
-
-| `licensePort`
-| String
-| No
-| Klocwork license server port.
 
 | `username`
 | String
 | Yes
 | Klocwork username.
 
-| `token`
-| String
-| No
-| Klocwork application token.
-
 | `password`
 | String
 | No
 | Klocwork password.
 
-| `projectName`
+| `token`
 | String
 | No
-| Klocwork project name.
+| Klocwork application token.
+
+| `buildTool`
+| String
+| Yes
+| Klocwork build tool [make / cmake / python/ maven / gradle / gradlew / dotnet].
+
+| `buildDirectory`
+| String
+| No
+| Klocwork build directory [default is root folder].
+
+| `ref`
+| String
+| Yes
+| Specify the ref to be checked out and scanned.
 
 | `buildName`
 | String
 | No
 | Klocwork build name.
 
-| `buildDirectory`
+| `buildOptions`
 | String
-| Yes
-| Klocwork build directory.
-
-| `buildTool`
-| String
-| Yes
-| Klocwork build tool [make/cmake/python/maven/gradle/gradlew/dotnet].
+| No
+| Klocwork scan build options [e:g: make -j4].
 
 | `buildSpecFile`
 | String
 | No
 | Klocwork build specification file path [e:g: /tmp/kwinject.out].
 
-| `tablesDirectory`
-| String
+| `enableAgentScan`
+| Boolean
 | No
-| Klocwork scan tables directory [e:g: /tmp/tables].
+| Enable Klocwork Agent Scan [default is full scan].
 
-| `buildOptions`
+| `licenseHost`
 | String
 | No
-| Klocwork scan build options [e:g: make -j4].
+| Klocwork license server hostname [default is server hostname].
+
+| `licensePort`
+| String
+| No
+| Klocwork license server port [default is 27000].
+
+| `projectName`
+| String
+| No
+| Klocwork project name.
 
 | `scanTimeOut`
 | String
 | No
 | Klocwork scan waiting time in seconds [e:g: 3600].
 
-| `ref`
+| `tablesDirectory`
 | String
-| Yes
-| Specify the ref to be checked out and scanned.
+| No
+| Klocwork scan tables directory [e:g: /tmp/tables].
 
 | `workspace-dir`
 | String
@@ -137,6 +137,8 @@ NOTE: For more information about the Perforce Klocwork SAST scanner, refer to th
 | The file path of the code to be scanned.
 
 |===
+
+NOTE: For C/C++/.NET projects, since `kwinject` is used for building the specification file, the `buildOptions` parameter is mandatory. You must pass the appropriate build command with options. For example, if `make` is the build tool, the build options should be specified like `make targetName -j14` or similar build commands specific to your project configuration.
 
 == Outputs
 
