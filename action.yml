@@ -31,7 +31,7 @@ inputs:
     required: false
   buildDirectory:
     description: 'Klocwork build directory'
-    required: true
+    required: false
   buildTool:
     description: 'Klocwork build tool'
     required: true
