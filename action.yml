@@ -108,7 +108,7 @@ runs:
 
 
     - name: Run perforce klocwork sast plugin
-      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/assets-klocwork-scanner:2ec7793b43bac9eaa7f4c7f50c8475a953fdf47a
+      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/assets-klocwork-scanner:latest
       env:
         KLOCWORK_PROPS: '{"url": "${{ inputs.url }}" , "username": "${{ inputs.username }}", "password": "${{ inputs.password }}", "token": "${{ inputs.token }}", "enableAgentScan": "${{ inputs.enableAgentScan }}", "licenseHost": "${{ inputs.licenseHost }}", "licensePort": "${{ inputs.licensePort }}"}'
         RUN_ID: ${{ cloudbees.run_id }}
