@@ -75,7 +75,7 @@ runs:
   using: composite
   steps:
     - name: Generate sha and ref
-      uses: docker://public.ecr.aws/cloudbees/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
       with:
         entrypoint: assets-plugin-chain-utils
         args: get-commit-info
@@ -88,7 +88,7 @@ runs:
         INPUT_WORKSPACE_DIR: ${{ inputs.workspace-dir }}
 
     - name: Generate reference files
-      uses: docker://public.ecr.aws/cloudbees/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
       with:
         entrypoint: assets-plugin-chain-utils
         args: generate-references --asset-type "CODE"
@@ -98,7 +98,7 @@ runs:
         INPUT_RUN_ID: ${{ cloudbees.run_id }}
 
     - name: Run SCC Scan for tag generation
-      uses: docker://public.ecr.aws/cloudbees/actions/assets-scc-scanner:9393ab805bb706c829c471e1dfc8e6ee73541253
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-scc-scanner:9393ab805bb706c829c471e1dfc8e6ee73541253
       continue-on-error: true
       env:
         RUN_ID: ${{ cloudbees.run_id }}
@@ -126,7 +126,7 @@ runs:
       run: /app/plugin-klocwork-scanner -mode single
 
     - name: Complete execution plan
-      uses: docker://public.ecr.aws/cloudbees/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
       id: process-outputs
       with:
         entrypoint: assets-plugin-chain-utils
