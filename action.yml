@@ -75,7 +75,7 @@ runs:
   using: composite
   steps:
     - name: Generate sha and ref
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:69d6741ad8ea6000a068d8b9e2c36e91f6fd271e
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:2fa14429a5628e268b36e01f5dc7bd455e5b90c4
       with:
         entrypoint: assets-plugin-chain-utils
         args: get-commit-info
