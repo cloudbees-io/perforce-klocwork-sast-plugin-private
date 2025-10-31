@@ -75,7 +75,7 @@ runs:
   using: composite
   steps:
     - name: Generate sha and ref
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:2fa14429a5628e268b36e01f5dc7bd455e5b90c4
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
       with:
         entrypoint: assets-plugin-chain-utils
         args: get-commit-info
@@ -88,7 +88,7 @@ runs:
         INPUT_WORKSPACE_DIR: ${{ inputs.workspace-dir }}
 
     - name: Generate reference files
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:69d6741ad8ea6000a068d8b9e2c36e91f6fd271e
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
       with:
         entrypoint: assets-plugin-chain-utils
         args: generate-references --asset-type "CODE"
@@ -126,7 +126,7 @@ runs:
       run: /app/plugin-klocwork-scanner -mode single
 
     - name: Complete execution plan
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:69d6741ad8ea6000a068d8b9e2c36e91f6fd271e
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:6b1b1b9d1061144bc5e87a498b5a9bf53e69ab9b
       id: process-outputs
       with:
         entrypoint: assets-plugin-chain-utils
