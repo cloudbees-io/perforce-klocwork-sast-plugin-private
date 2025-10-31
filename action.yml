@@ -98,7 +98,7 @@ runs:
         INPUT_RUN_ID: ${{ cloudbees.run_id }}
 
     - name: Run SCC Scan for tag generation
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/assets-scc-scanner:1f95fd45dd03fa6f363ff95cb20142fe4b7d83c4
+      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/assets-scc-scanner:afeacf277504ad5cc6a8c91030298e73853f3c1e
       continue-on-error: true
       env:
         RUN_ID: ${{ cloudbees.run_id }}
@@ -108,7 +108,7 @@ runs:
 
 
     - name: Run perforce klocwork sast plugin
-      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/assets-plugin-chain-utils:42ecaf042af1081c3dc4813c15cc47d0bbefe0e8
+      uses: docker://public.ecr.aws/cloudbees/actions/assets-klocwork-scanner:fdb53c7fd3c1e8c795c2796e7414edbada9b6113
       env:
         KLOCWORK_PROPS: '{"url": "${{ inputs.url }}" , "username": "${{ inputs.username }}", "password": "${{ inputs.password }}", "token": "${{ inputs.token }}", "enableAgentScan": "${{ inputs.enableAgentScan }}", "licenseHost": "${{ inputs.licenseHost }}", "licensePort": "${{ inputs.licensePort }}"}'
         RUN_ID: ${{ cloudbees.run_id }}
